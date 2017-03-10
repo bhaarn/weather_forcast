@@ -1,0 +1,127 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground"
+        android:orientation="vertical"
+        tools:context=".WeatherActivity">
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/weather_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/black">
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/fragment_weather_app_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AppTheme.AppBarOverlay">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/weather_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                    <TextView
+                        android:id="@+id/city_country"
+                        style="@style/TextView"
+                        android:paddingEnd="16dp"/>
+
+                    <TextView
+                        android:id="@+id/current_date"
+                        style="@style/TextView" />
+                </android.support.v7.widget.Toolbar>
+            </android.support.design.widget.AppBarLayout>
+
+        </android.support.design.widget.CoordinatorLayout>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/no_data_view"
+            style="@style/SmallCardView"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/TextView"
+                android:text="@string/unable_load_content" />
+
+        </android.support.v7.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/weather_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/sun" />
+
+            <com.github.pavlospt.CircleView
+                android:id="@+id/weather_result"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                app:cv_backgroundColorValue="@color/colorCircleStroke"
+                app:cv_fillColor="@color/colorBackground"
+                app:cv_strokeColorValue="@color/colorCircleStroke"
+                app:cv_subtitleSize="12dp"
+                app:cv_titleColor="@color/colorWhite"
+                app:cv_titleSize="50dp"
+                app:cv_titleSubtitleSpace="40" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/wind"
+                style="@style/LongCardView.TextView"
+                android:layout_alignParentStart="true"
+                android:text="@string/wind"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/wind_result"
+                style="@style/LongCardView.TextView"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/wind" />
+
+            <TextView
+                android:id="@+id/humidity"
+                style="@style/LongCardView.TextView"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@+id/wind"
+                android:text="@string/humidity"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/humidity_result"
+                style="@style/LongCardView.TextView"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/humidity" />
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/weather_daily_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:scrollbars="vertical" />
+
+    </LinearLayout>
+</layout>

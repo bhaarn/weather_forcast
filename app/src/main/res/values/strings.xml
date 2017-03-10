@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">WeatherForecast</string>
+    <string name="unable_load_content">Unable to load weather.  Please try after some time.</string>
+    <string name="wind">WIND</string>
+    <string name="humidity">HUMIDITY</string>
+    <string name="permission_notice">Please enable the GPS to access the location</string>
+</resources>
