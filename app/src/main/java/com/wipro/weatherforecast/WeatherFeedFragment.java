@@ -136,7 +136,7 @@ public class WeatherFeedFragment extends Fragment implements LocationListener {
                     String sunRise = locationMapObject.getSys().getSunrise();
                     String sunSet = locationMapObject.getSys().getSunset();
 
-                    Toast.makeText(getActivity(), "Sun Rise : " + Html.fromHtml(sunRise) + " Sun Set : " + Html.fromHtml(sunSet), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "Sun Rise : " + getFormattedTime(sunRise) + " Sun Set : " + getFormattedTime(sunSet), Toast.LENGTH_LONG).show();
 
                     weatherFeedFragmentBinding.cityCountry.setText(Html.fromHtml(city));
                     weatherFeedFragmentBinding.currentDate.setText(Html.fromHtml(todayDate));
@@ -155,6 +155,12 @@ public class WeatherFeedFragment extends Fragment implements LocationListener {
             }
         });
         queue.add(stringRequest);
+    }
+
+    private Date getFormattedTime(String value) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(Long.parseLong(value)*1000);
+        return calendar.getTime();
     }
 
     @Override
