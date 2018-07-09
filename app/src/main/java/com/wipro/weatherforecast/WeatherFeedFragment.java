@@ -133,6 +133,10 @@ public class WeatherFeedFragment extends Fragment implements LocationListener {
                     String weatherDescription = Helper.capitalizeFirstLetter(locationMapObject.getWeather().get(0).getDescription());
                     String windSpeed = locationMapObject.getWind().getSpeed();
                     String humidityValue = locationMapObject.getMain().getHumudity();
+                    String sunRise = locationMapObject.getSys().getSunrise();
+                    String sunSet = locationMapObject.getSys().getSunset();
+
+                    Toast.makeText(getActivity(), "Sun Rise : " + Html.fromHtml(sunRise) + " Sun Set : " + Html.fromHtml(sunSet), Toast.LENGTH_LONG).show();
 
                     weatherFeedFragmentBinding.cityCountry.setText(Html.fromHtml(city));
                     weatherFeedFragmentBinding.currentDate.setText(Html.fromHtml(todayDate));
